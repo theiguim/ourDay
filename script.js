@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
         const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
     
-        return `Faltam ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos para 22/05/2027.`;
+        // return `Faltam ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos para 22/05/2027.`;
+        return `FALTAM ${dias} DIAS, ${horas} HORAS, ${minutos} MINUTOS & ${segundos} SEGUNDOS PARA 22/05/2027.`;
       }
     
       function atualizarData() {
