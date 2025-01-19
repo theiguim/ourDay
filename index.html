@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I & L</title>
+  <style>
+    @font-face {
+      font-family: "sunday romantic";
+      src: url(SundayRomantic-Regular\ DEMO.otf);
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      background-color: black;
+    }
+
+    body {
+
+      background-image: url(background.jpg);
+      background-repeat: no-repeat;
+      background-position: 35% 0%;
+      background-size: 220%;
+
+      height: 100vh;
+      width: 100vw;
+
+      display: flex;
+      align-items: start;
+      justify-content: center;
+      overflow: hidden;
+      font-family: sans-serif;
+
+    }
+
+    .content {
+      color: rgb(184, 9, 9);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.281);
+      font-size: 30px;
+
+      font-family: "sunday romantic";
+
+      text-align: center;
+      font-size: 20px;
+
+      padding-top: 100px;
+      width: 90vw;
+
+    }
+
+    @media (min-width: 500px) {
+      body {
+        background-position: 30% 30%;
+        background-size: cover;
+
+
+        justify-content: end;
+      }
+
+      .content {
+        width: 30%;
+        padding-right: 4vw;
+
+        font-size: 2.5vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <h1 id="dataDinamica"></h1>
+  </div>
+
+  <script>
+    function calcularDiferencaData(dataFutura) {
+      const hoje = new Date();
+      const futura = new Date(dataFutura);
+      const diferenca = futura - hoje;
+
+      if (diferenca <= 0) {
+        return "A data já passou!";
+      }
+
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+      return `Faltam ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos para 22/05/2027.`;
+    }
+
+    function atualizarData() {
+      const dataAlvo = "2027-05-22T15:30:00"; // Data futura
+      const resultado = calcularDiferencaData(dataAlvo);
+
+      const elemento = document.getElementById("dataDinamica");
+      elemento.textContent = resultado;
+    }
+    setInterval(atualizarData, 1000);
+  </script>
+</body>
+
+</html>
